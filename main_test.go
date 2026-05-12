@@ -48,7 +48,7 @@ func Test_SelectClient_WhenNoClient(t *testing.T) {
 	// проверяем, что функция selectClient вернула ошибку
 	require.Error(t, err, "Функция selectClient() должна была вернуть ошибку")
 	// проверяем, то функция selectClient вернула ошибку sql.ErrNoRows
-	require.Equal(t, sql.ErrNoRows, err, "Функция selectClient должна была вернуть ошибку sql.ErrNoRows, а не %v", err)
+	require.ErrorIs(t, err, sql.ErrNoRows, "Функция selectClient должна была вернуть ошибку sql.ErrNoRows, а не %v", err)
 	// проверяем, что поля полученного объекта - пустые
 	require.Empty(t, cl.FIO, "Поля полученного объекта должны быть пустыми")
 	require.Empty(t, cl.Login, "Поля полученного объекта должны быть пустыми")
@@ -128,5 +128,5 @@ func Test_InsertClient_DeleteClient_ThenCheck(t *testing.T) {
 	// проверяем, что функция selectClient вернула ошибку
 	require.Error(t, err, "Функция selectClient() должна была вернуть ошибку")
 	// проверяем, то функция selectClient вернула ошибку sql.ErrNoRows
-	require.Equal(t, sql.ErrNoRows, err, "Функция selectClient должна была вернуть ошибку sql.ErrNoRows, а не %v", err)
+	require.ErrorIs(t, err, sql.ErrNoRows, "Функция selectClient должна была вернуть ошибку sql.ErrNoRows, а не %v", err)
 }
