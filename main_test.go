@@ -128,5 +128,5 @@ func Test_InsertClient_DeleteClient_ThenCheck(t *testing.T) {
 	// проверяем, что функция selectClient вернула ошибку
 	require.Error(t, err, "Функция selectClient() должна была вернуть ошибку")
 	// проверяем, то функция selectClient вернула ошибку sql.ErrNoRows
-	require.ErrorIs(t, err, sql.ErrNoRows, "Функция selectClient должна была вернуть ошибку sql.ErrNoRows, а не %v", err)
+	require.ErrorIs(t, err, sql.ErrNoRows, "Функция selectClient() должна была вернуть ошибку sql.ErrNoRows, а не %v", err)
 }
